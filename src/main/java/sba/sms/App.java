@@ -1,14 +1,19 @@
 package sba.sms;
 
 import lombok.extern.java.Log;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import sba.sms.models.Course;
 import sba.sms.models.Student;
 import sba.sms.services.CourseService;
 import sba.sms.services.StudentService;
 import sba.sms.utils.CommandLine;
+import sba.sms.utils.HibernateUtil;
 
 import java.util.List;
 import java.util.Scanner;
+
+
 
 /**
  * SBA Core Java Hibernate/Junit
@@ -31,8 +36,9 @@ import java.util.Scanner;
 
 @Log
 public class App {
-    static final  StudentService studentService = new StudentService();
-    static final  CourseService courseService = new CourseService();
+    SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    static final StudentService studentService = new StudentService();
+    static final CourseService courseService = new CourseService();
 
     public static void main(String[] args) {
 
@@ -60,7 +66,7 @@ public class App {
                         System.out.printf("%-2s | %-20s | %s%n", "ID", "Course", "Instructor");
                         if (courseList.isEmpty()) System.out.printf("No courses to view%n");
                         for (Course course : courseList) {
-                            System.out.printf("%-2d | %-20s | %s%n", course.getId(), course.getName(), course.getInstructor());
+                            System.out.printf("%-2d | %-20s | %s%n", course.getCourseId(), course.getName(), course.getInstructor());
                         }
                         System.out.print("select course #: ");
                         int courseId = input.nextInt();
@@ -87,7 +93,7 @@ public class App {
         List<Course> userCourses = studentService.getStudentCourses(email);
         if (userCourses.isEmpty()) System.out.printf("No courses to view%n");
         for (Course course : userCourses) {
-            System.out.printf("%-2d | %-20s | %s%n", course.getId(), course.getName(), course.getInstructor());
+            System.out.printf("%-2d | %-20s | %s%n", course.getCourseId(), course.getName(), course.getInstructor());
         }
     }
 }

@@ -13,11 +13,12 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-    <junit.jupiter.version>5.8.2</junit.jupiter.version>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <!--<junit.jupiter.version>5.8.2</junit.jupiter.version>-->
 
   </properties>
+
 
   <dependencies>
 
@@ -33,63 +34,108 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>6.0.1.Final</version>
+      <version>6.1.0.Final</version>
     </dependency>
 
     <!-- Project Lombok -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.24</version>
+      <version>1.18.30</version> <!-- Use the latest version -->
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-annotations</artifactId>
+      <version>3.5.5-Final</version>
+    </dependency>
 
-    <!-- JUNIT Dependencies-->
+    <dependency>
+      <groupId>jakarta.persistence</groupId>
+      <artifactId>jakarta.persistence-api</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+
+
+
+
+  <!-- JUNIT Dependencies-->
 
     <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
-    <dependency>
+    <!--<dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <version>3.22.0</version>
       <scope>test</scope>
+    </dependency> -->
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.11.4</version>
+      <scope>test</scope>
     </dependency>
+
 
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>${junit.jupiter.version}</version>
+      <version>5.8.2</version>
       <scope>test</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <version>${junit.jupiter.version}</version>
+      <version>5.8.2</version>
       <scope>test</scope>
     </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params -->
-    <dependency>
+    <!--<dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
-      <version>${junit.jupiter.version}</version>
+      <version>5.8.2</version>
       <scope>test</scope>
-    </dependency>
+    </dependency>-->
+
     <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-suite-engine -->
-    <dependency>
+    <!--<dependency>
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-suite-engine</artifactId>
       <version>1.8.2</version>
       <scope>test</scope>
-    </dependency>
+    </dependency>-->
+
     <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner -->
-    <dependency>
+    <!--<dependency>
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-runner</artifactId>
       <version>1.8.2</version>
       <scope>test</scope>
+    </dependency>-->
+
+  <!-- Mockito for JUnit 5 -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>3.6.0</version>
+      <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <version>3.6.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.194</version>
+    </dependency>
 
 
   </dependencies>
